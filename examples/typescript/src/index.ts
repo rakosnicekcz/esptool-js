@@ -304,11 +304,11 @@ function validateProgramInputs() {
   return "success";
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-  const compressCheckbox = document.getElementById('compressCheckbox') as HTMLInputElement;
-  const encryptCheckbox = document.getElementById('encryptCheckbox') as HTMLInputElement;
+document.addEventListener("DOMContentLoaded", () => {
+  const compressCheckbox = document.getElementById("compressCheckbox") as HTMLInputElement;
+  const encryptCheckbox = document.getElementById("encryptCheckbox") as HTMLInputElement;
 
-  encryptCheckbox.addEventListener('change', () => {
+  encryptCheckbox.addEventListener("change", () => {
     if (encryptCheckbox.checked) {
       compressCheckbox.checked = false;
       compressCheckbox.disabled = true;
@@ -322,8 +322,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 programButton.onclick = async () => {
   const alertMsg = document.getElementById("alertmsg");
   const err = validateProgramInputs();
-  const compressCheckbox = document.getElementById('compressCheckbox') as HTMLInputElement;
-  const encryptCheckbox = document.getElementById('encryptCheckbox') as HTMLInputElement;
+  const compressCheckbox = document.getElementById("compressCheckbox") as HTMLInputElement;
+  const encryptCheckbox = document.getElementById("encryptCheckbox") as HTMLInputElement;
 
   console.log("compressCheckbox", compressCheckbox.checked);
   console.log("encryptCheckbox", encryptCheckbox.checked);
