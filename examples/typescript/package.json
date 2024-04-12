@@ -6,6 +6,7 @@
   "scripts": {
     "genDocs": "cd ../.. && npm run genDocs && mkdir -p examples/typescript/dist && cp -r docs examples/typescript/dist && cd examples/typescript",
     "dev": "npm run clean && parcel src/index.html",
+    "hotdev": "npm run clean && nodemon --watch 'src/**/*.ts' --exec \"parcel src/index.html\"",
     "build": "npm run clean && npm run genDocs && parcel build src/index.html --no-optimize --public-url ./",
     "clean": "rimraf dist .parcel-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +21,8 @@
     "parcel-resolver-ignore": "^2.1.5",
     "rimraf": "^4.1.2",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.0"
   }
 }
