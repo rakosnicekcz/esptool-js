@@ -1402,16 +1402,14 @@ export class ESPLoader {
     for (let i = 0; i < options.fileArray.length; i++) {
       this.debug("Data Length " + options.fileArray[i].data.length);
 
-      if (options.compress && options.encrypt
-    ) {
+      if (options.compress && options.encrypt) {
         this.info("WARNING: compress and encrypt options are mutually exclusive");
         this.info("Will flash uncompressed");
         options.compress = false;
       }
 
       image = options.fileArray[i].data;
-      image = this.padTo(image, options.encrypt
-     ? this.chip.FLASH_ENCRYPTED_WRITE_ALIGN : 4);
+      image = this.padTo(image, options.encrypt ? this.chip.FLASH_ENCRYPTED_WRITE_ALIGN : 4);
       address = options.fileArray[i].address;
       this.debug("Image Length " + image.length);
       if (image.length === 0) {
@@ -1480,8 +1478,7 @@ export class ESPLoader {
         } else {
           const padding = new Uint8Array(this.FLASH_WRITE_SIZE - block.length).fill(0xff);
           block = this._appendArray(block, padding);
-          if (options.encrypt
-        ) {
+          if (options.encrypt) {
             await this.flashEncryptBlock(block, seq, timeout);
           } else {
             await this.flashBlock(block, seq, timeout);
@@ -1510,8 +1507,7 @@ export class ESPLoader {
             " seconds.",
         );
       }
-      if (calcmd5 && !options.encrypt
-    ) {
+      if (calcmd5 && !options.encrypt) {
         const res = await this.flashMd5sum(address, uncsize);
         if (new String(res).valueOf() != new String(calcmd5).valueOf()) {
           this.info("File  md5: " + calcmd5);
